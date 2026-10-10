@@ -165,3 +165,7 @@ CMS ACCESS Model public-domain provenance) are reproduced in
 - **MIMIC-derived data is never distributed here** — PhysioNet's Credentialed Health Data License governs the data and prohibits redistribution. Obtain MIMIC-IV-FHIR via your own [PhysioNet credentialing](https://physionet.org/about/citi-course/).
 - **Trained model weights are not released** from this repo. Weights derived from MIMIC are typically redistributed only via PhysioNet's "MIMIC-IV Models" channel under similar credentialing.
 - **Released benchmark data** (Synthea-generated, planned for `benchmarks/synthetic_v1/`) will follow Synthea's Apache 2.0 license; see [NOTICE](NOTICE) for the full Synthea + SNOMED CT attribution.
+
+## Citing
+
+This repository is the canonical home of the paper and the benchmark. Cite it with the metadata in [CITATION.cff](CITATION.cff); GitHub renders it as APA and BibTeX under **Cite this repository**. Tagged releases are archived on Zenodo, which assigns each one a DOI.

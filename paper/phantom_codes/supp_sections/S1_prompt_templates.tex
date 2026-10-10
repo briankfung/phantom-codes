@@ -6,9 +6,9 @@ headline matrix. Three prompting modes (\texttt{zeroshot}, \texttt{constrained},
 \texttt{rag}) are evaluated; each is reproduced below per provider
 (Anthropic, OpenAI, Google) for full reviewer auditability. All
 content is extracted verbatim from
-\href{https://github.com/ufbfung/phantom-codes/blob/main/src/phantom_codes/models/llm.py}{\texttt{src/phantom\_codes/models/llm.py}}
+\href{https://github.com/briankfung/phantom-codes/blob/main/src/phantom_codes/models/llm.py}{\texttt{src/phantom\_codes/models/llm.py}}
 and
-\href{https://github.com/ufbfung/phantom-codes/blob/main/src/phantom_codes/models/rag_llm.py}{\texttt{src/phantom\_codes/models/rag\_llm.py}}.
+\href{https://github.com/briankfung/phantom-codes/blob/main/src/phantom_codes/models/rag_llm.py}{\texttt{src/phantom\_codes/models/rag\_llm.py}}.
 Note that the verbatim prompt strings reproduced in code blocks
 preserve the punctuation present in the source, including any
 em-dashes that appear in the actual model-facing prompts.
@@ -44,7 +44,7 @@ candidate per line as \texttt{-\ \textless{}code\textgreater{}:\ \textless{}disp
 \texttt{\textless{}GROUP\textgreater{}} is \texttt{CKM} or \texttt{ECKM}). The headline run uses \textasciitilde85 candidate
 codes drawn from the CMS ACCESS Model FHIR Implementation Guide
 v0.9.6 ValueSets bundled at
-\href{https://github.com/ufbfung/phantom-codes/tree/main/src/phantom_codes/data/access_valuesets/}{\texttt{src/phantom\_codes/data/access\_valuesets/}}.
+\href{https://github.com/briankfung/phantom-codes/tree/main/src/phantom_codes/data/access_valuesets/}{\texttt{src/phantom\_codes/data/access\_valuesets/}}.
 
 \begin{verbatim}
 You are a clinical informatics assistant. Your task is to recover the
@@ -84,7 +84,7 @@ the top-\texttt{retrieve\_k\ =\ 20} ACCESS-scope candidates most similar to the
 input. The structural form is therefore identical to S1.2; only the
 size and identity of the candidate block change. From
 \texttt{RAGLLMModel.predict} in
-\href{https://github.com/ufbfung/phantom-codes/blob/main/src/phantom_codes/models/rag_llm.py}{\texttt{src/phantom\_codes/models/rag\_llm.py}}:
+\href{https://github.com/briankfung/phantom-codes/blob/main/src/phantom_codes/models/rag_llm.py}{\texttt{src/phantom\_codes/models/rag\_llm.py}}:
 
 \begin{verbatim}
 # Stage 1 — retrieve top-K candidates for this specific input.

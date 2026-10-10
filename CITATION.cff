@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this benchmark, its code, or its results, please cite it using the metadata in this file."
+type: software
+title: "Phantom Codes: a reproducible benchmark for hallucination, accuracy, and cost in LLM-based medical concept normalization"
+authors:
+  - family-names: Fung
+    given-names: Brian K.
+    orcid: "https://orcid.org/0000-0002-5951-3770"
+    email: brian@briankfung.com
+repository-code: "https://github.com/briankfung/phantom-codes"
+url: "https://github.com/briankfung/phantom-codes"
+license: MIT
+version: 1.0.0
+keywords:
+  - clinical-concept-normalization
+  - medical-concept-normalization
+  - icd-10-cm
+  - clinical-nlp
+  - llm-evaluation
+  - hallucination
+  - fhir
+preferred-citation:
+  type: generic
+  title: "Phantom Codes: Hallucination, Accuracy, and Cost in LLM-Based Medical Concept Normalization"
+  authors:
+    - family-names: Fung
+      given-names: Brian K.
+      orcid: "https://orcid.org/0000-0002-5951-3770"
+  year: 2026
+  url: "https://github.com/briankfung/phantom-codes/blob/main/paper/phantom_codes.pdf"
+  notes: "Manuscript and supplement are hosted in this repository, which is their canonical home."
