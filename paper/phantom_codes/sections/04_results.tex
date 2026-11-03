@@ -167,9 +167,10 @@ exhaustion (counted as \texttt{no\_prediction} in §4.3, not as cost-bearing
 calls). The 424 figure reflects calls that produced billable
 output; cost normalization uses that denominator.
 
-A 270× spread separates the cheapest configuration (Gemini 2.5
+A 280× spread separates the cheapest configuration (Gemini 2.5
 Flash zeroshot at \$0.00005/call) from the most expensive (Claude
-Opus 4.7 zeroshot at \$0.01354/call). Per-call price varies more
+Opus 4.7 RAG at \$0.01423/call), and a 230× spread separates them
+per correct prediction. Per-call price varies more
 dramatically across the matrix than per-call accuracy, so
 cost-per-correct prediction is dominated by per-call price for any
 configuration that achieves $\geq$80\% top-1 accuracy. One caveat: the
@@ -190,7 +191,7 @@ Table 4 below. Sorted by \$/correct ascending; n=500 per row.
 \begin{figure*}[!t]
 \centering
 \includegraphics[width=0.9\textwidth,keepaspectratio]{../figures/figure2_cost_frontier.pdf}
-\caption{Cost per 1,000 correct predictions (USD, log scale) versus top-1 accuracy for every (LLM, prompting mode) configuration achieving \(\geq\)75\% top-1 accuracy. Color encodes provider; marker shape encodes prompting mode. Pareto-optimal configurations are drawn with a heavy black border. GPT-4o-mini constrained and Claude Haiku 4.5 constrained sit on the deployment frontier; Claude Opus 4.7 constrained is dominated despite competitive accuracy because its per-correct cost is 30 to 40 times higher.}
+\caption{Cost per 1,000 correct predictions (USD, log scale) versus top-1 accuracy for every (LLM, prompting mode) configuration achieving \(\geq\)75\% top-1 accuracy. Color encodes provider; marker shape encodes prompting mode. Pareto-optimal configurations are drawn with a heavy black border. GPT-4o-mini constrained and Claude Haiku 4.5 constrained sit on the deployment frontier; Claude Opus 4.7 constrained is dominated despite competitive accuracy because its per-correct cost is about 45 times GPT-4o-mini constrained's and 3 times Claude Haiku 4.5 constrained's.}
 \label{fig:cost}
 \end{figure*}
 
@@ -241,7 +242,7 @@ constrained leads on deployment-relevance}: 94.2\% top-1, 0\%
 hallucination, \$0.0003 per correct, the cheapest configuration
 that achieves $\geq$94\% top-1. Claude Haiku 4.5 constrained adds 2.6pp
 accuracy at roughly 14× the cost. Claude Opus 4.7 constrained's
-0.6pp accuracy edge does not justify its 44× cost: the largest
+0.6pp accuracy edge does not justify its 45× cost: the largest
 frontier model is not the deployment leader. Gemini 2.5 Pro's
 elevated \$/correct reflects abstention behavior, not a normal
 cost-accuracy tradeoff.
