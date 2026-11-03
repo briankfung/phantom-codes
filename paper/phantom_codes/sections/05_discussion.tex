@@ -33,8 +33,10 @@ three ways relevant to deployment. The first is model generation.
 Their headline numbers are GPT-4 (46\% exact match on ICD-9, 34\%
 on ICD-10); our matrix includes Opus 4.7, GPT-5.5, and Gemini 3
 Flash Preview on the same task type. Every Anthropic and OpenAI
-configuration we evaluated exceeds 80\% top-1 even under the D4
-abbreviation stress, which we attribute to cohort-scope
+configuration we evaluated in constrained mode exceeds 86\% top-1
+even under the D4 abbreviation stress (86.4\% to 93.6\%; their
+zero-shot and RAG configurations range from 61.6\% to 84.8\%),
+which we attribute to cohort-scope
 restriction, generational LLM improvements, and structured-output
 prompting. The second is per-prediction cost. Soroush et al.\ and
 the broader hallucination-mitigation literature
@@ -120,8 +122,9 @@ direct analogs in the other vocabulary registries.
 The v1 headline matrix evaluates n=125 unique Synthea Conditions.
 Per-cell Wilson 95\% CIs on a 10\% rate are correspondingly ±5pp,
 and v2 replication at n=2000 will tighten intervals by
-approximately 2×. Gemini 2.5 Pro showed an 88\% no\_prediction
-rate on zero-shot D4 with most empty rows showing zero output
+approximately 2×. Gemini 2.5 Pro showed a 95\% no\_prediction
+rate on zero-shot D4 (88\% across all zero-shot inputs) with most
+empty rows showing zero output
 tokens, consistent with reasoning-token budget exhaustion under
 our wrapper's \texttt{max\_output\_tokens=1024} setting. Whether this is
 a fixable wrapper interaction or a genuine model limitation is

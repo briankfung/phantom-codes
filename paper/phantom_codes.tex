@@ -126,9 +126,11 @@ flagship configurations and from 0 to 12.8\% across sub-flagship
 configurations. Constrained prompting eliminated fabrication for
 every Anthropic and OpenAI model. Abstention proved more
 consequential for some models: Gemini 2.5 Pro returned an empty
-prediction on 88\% of zero-shot D4 inputs. Cost-per-correct varied
-by a factor of 270 across the matrix; GPT-4o-mini in constrained
-mode achieved the lowest cost at \$0.0003 per exact match.
+prediction on 95\% of zero-shot D4 inputs and 88\% of zero-shot
+inputs overall. Cost-per-correct varied by a factor of about 230
+across the matrix; GPT-4o-mini in constrained mode was the
+cheapest configuration to reach 94\% top-1, at \$0.0003 per exact
+match.
 Zero-shot LLM prompting is inferior to constrained and
 retrieval-augmented grounding for medical concept normalization;
 only the grounded configurations eliminated observed fabrication.
@@ -568,9 +570,10 @@ exhaustion (counted as \texttt{no\_prediction} in §4.3, not as cost-bearing
 calls). The 424 figure reflects calls that produced billable
 output; cost normalization uses that denominator.
 
-A 270× spread separates the cheapest configuration (Gemini 2.5
+A 280× spread separates the cheapest configuration (Gemini 2.5
 Flash zeroshot at \$0.00005/call) from the most expensive (Claude
-Opus 4.7 zeroshot at \$0.01354/call). Per-call price varies more
+Opus 4.7 RAG at \$0.01423/call), and a 230× spread separates them
+per correct prediction. Per-call price varies more
 dramatically across the matrix than per-call accuracy, so
 cost-per-correct prediction is dominated by per-call price for any
 configuration that achieves $\geq$80\% top-1 accuracy. One caveat: the
@@ -591,7 +594,7 @@ Table 4 below. Sorted by \$/correct ascending; n=500 per row.
 \begin{figure*}[!t]
 \centering
 \includegraphics[width=0.9\textwidth,keepaspectratio]{figures/figure2_cost_frontier.pdf}
-\caption{Cost per 1,000 correct predictions (USD, log scale) versus top-1 accuracy for every (LLM, prompting mode) configuration achieving \(\geq\)75\% top-1 accuracy. Color encodes provider; marker shape encodes prompting mode. Pareto-optimal configurations are drawn with a heavy black border. GPT-4o-mini constrained and Claude Haiku 4.5 constrained sit on the deployment frontier; Claude Opus 4.7 constrained is dominated despite competitive accuracy because its per-correct cost is 30 to 40 times higher.}
+\caption{Cost per 1,000 correct predictions (USD, log scale) versus top-1 accuracy for every (LLM, prompting mode) configuration achieving \(\geq\)75\% top-1 accuracy. Color encodes provider; marker shape encodes prompting mode. Pareto-optimal configurations are drawn with a heavy black border. GPT-4o-mini constrained and Claude Haiku 4.5 constrained sit on the deployment frontier; Claude Opus 4.7 constrained is dominated despite competitive accuracy because its per-correct cost is about 45 times GPT-4o-mini constrained's and 3 times Claude Haiku 4.5 constrained's.}
 \label{fig:cost}
 \end{figure*}
 
@@ -642,7 +645,7 @@ constrained leads on deployment-relevance}: 94.2\% top-1, 0\%
 hallucination, \$0.0003 per correct, the cheapest configuration
 that achieves $\geq$94\% top-1. Claude Haiku 4.5 constrained adds 2.6pp
 accuracy at roughly 14× the cost. Claude Opus 4.7 constrained's
-0.6pp accuracy edge does not justify its 44× cost: the largest
+0.6pp accuracy edge does not justify its 45× cost: the largest
 frontier model is not the deployment leader. Gemini 2.5 Pro's
 elevated \$/correct reflects abstention behavior, not a normal
 cost-accuracy tradeoff.
@@ -704,8 +707,10 @@ three ways relevant to deployment. The first is model generation.
 Their headline numbers are GPT-4 (46\% exact match on ICD-9, 34\%
 on ICD-10); our matrix includes Opus 4.7, GPT-5.5, and Gemini 3
 Flash Preview on the same task type. Every Anthropic and OpenAI
-configuration we evaluated exceeds 80\% top-1 even under the D4
-abbreviation stress, which we attribute to cohort-scope
+configuration we evaluated in constrained mode exceeds 86\% top-1
+even under the D4 abbreviation stress (86.4\% to 93.6\%; their
+zero-shot and RAG configurations range from 61.6\% to 84.8\%),
+which we attribute to cohort-scope
 restriction, generational LLM improvements, and structured-output
 prompting. The second is per-prediction cost. Soroush et al.\ and
 the broader hallucination-mitigation literature
@@ -791,8 +796,9 @@ direct analogs in the other vocabulary registries.
 The v1 headline matrix evaluates n=125 unique Synthea Conditions.
 Per-cell Wilson 95\% CIs on a 10\% rate are correspondingly ±5pp,
 and v2 replication at n=2000 will tighten intervals by
-approximately 2×. Gemini 2.5 Pro showed an 88\% no\_prediction
-rate on zero-shot D4 with most empty rows showing zero output
+approximately 2×. Gemini 2.5 Pro showed a 95\% no\_prediction
+rate on zero-shot D4 (88\% across all zero-shot inputs) with most
+empty rows showing zero output
 tokens, consistent with reasoning-token budget exhaustion under
 our wrapper's \texttt{max\_output\_tokens=1024} setting. Whether this is
 a fixable wrapper interaction or a genuine model limitation is
@@ -850,7 +856,7 @@ metric. The deployment frontier consists of \textbf{GPT-4o-mini
 constrained} (94.2\% top-1, \$0.0003 per correct, the cheapest
 configuration at $\geq$94\% accuracy) and \textbf{Claude Haiku 4.5
 constrained} (96.8\%, \$0.0044 per correct, an additional 2.6pp
-accuracy at roughly 14× the cost). Both dominate the largest
+accuracy at roughly 15× the cost). Both dominate the largest
 frontier model (Opus 4.7 constrained, 94.8\%, \$0.0133). The
 supported workflow is LLM-augmented coding with terminologist
 review.
